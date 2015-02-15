@@ -16,4 +16,7 @@ class HomePageTest(TestCase):
 		response = home_page(request)
 		self.assertTrue(response.content.startswith(b'<html>'))
 		self.assertIn(b'<title>To-Do Lists</title>', response.content)
-		self.assertTrue(response.content.endswith(b'</html>'))
+
+		# Added .strip() to the following assertion to remove any trailing
+		# whitespace / lines from the lists/templates/home.html file
+		self.assertTrue(response.content.strip().endswith(b'</html>'))
