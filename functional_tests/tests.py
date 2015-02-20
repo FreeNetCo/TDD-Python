@@ -52,6 +52,7 @@ class NewVisitorTest(LiveServerTestCase):
 		# She enters "Use peacock feathers to make a fly"
 		# (Edith is very methodical)
 		inputbox = self.browser.find_element_by_id('id_new_item')
+
 		inputbox.send_keys('Use peacock feathers to make a fly')
 		inputbox.send_keys(Keys.ENTER)
 
@@ -61,8 +62,8 @@ class NewVisitorTest(LiveServerTestCase):
 
 		# Now a new user, Francis, comes along to the site.
 
-		# We use a new browser session to make sure that no information
-		# of Edith's is coming through from cookies, etc
+		## We use a new browser session to make sure that no information
+		## of Edith's is coming through from cookies, etc
 		self.browser.quit()
 		self.browser = webdriver.Firefox()
 
@@ -76,7 +77,7 @@ class NewVisitorTest(LiveServerTestCase):
 		# less interesting than Edith.
 		inputbox = self.browser.find_element_by_id('id_new_item')
 		inputbox.send_keys('Buy milk')
-		inputbox.send_keys(Keys.Enter)
+		inputbox.send_keys(Keys.ENTER)
 
 		# Francis gets his own unique URL
 		francis_list_url = self.browser.current_url
