@@ -6,6 +6,8 @@ from django.http import HttpRequest
 from lists.models import Item, List
 from lists.views import home_page
 
+from helpers import debug
+
 class HomePageTest(TestCase):
 
 	def test_root_url_resolves_to_home_page_view(self):
@@ -36,7 +38,10 @@ class NewListTest(TestCase):
 			data={'item_text': 'A new list item'}
 		)
 		new_list = List.objects.first()
+		
 		self.assertRedirects(response, '/lists/%d/' % (new_list.id,))
+
+		debug.dp(new_list.id)
 
 
 class NewItemTest(TestCase):
