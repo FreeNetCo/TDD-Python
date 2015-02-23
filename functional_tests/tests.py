@@ -3,6 +3,7 @@
 from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from helpers import debug
 
 class NewVisitorTest(LiveServerTestCase):
 
@@ -45,7 +46,7 @@ class NewVisitorTest(LiveServerTestCase):
 		# "1: Buy peacock feathers" as an item in a to-do list
 		inputbox.send_keys(Keys.ENTER)
 		edith_list_url = self.browser.current_url
-		self.assertRegex(edith_list_url, '/lists/.+')
+		self.assertRegex(edith_list_url, '/lists/.+/')
 		self._check_for_row_in_list_table('1: Buy peacock feathers')
 
 		# There is still a text box inviting her to add another item.
@@ -72,6 +73,8 @@ class NewVisitorTest(LiveServerTestCase):
 		page_text = self.browser.find_element_by_tag_name('body').text
 		self.assertNotIn('Buy peacock feathers', page_text)
 		self.assertNotIn('make a fly', page_text)
+
+		self.browser.find_element_by_tag_name('body')
 
 		# Francis starts a new list by entering a new line. He is
 		# less interesting than Edith.
