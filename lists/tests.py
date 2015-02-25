@@ -41,8 +41,6 @@ class NewListTest(TestCase):
 		
 		self.assertRedirects(response, '/lists/%d/' % (new_list.id,))
 
-		debug.dp(new_list.id)
-
 
 class NewItemTest(TestCase):
 
