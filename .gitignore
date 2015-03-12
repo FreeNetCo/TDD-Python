@@ -1,3 +1,8 @@
 db.sqlite3
 *.pyc
 __pycache
+bin/
+include/
+lib/
+local/
+

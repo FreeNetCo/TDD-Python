@@ -6,7 +6,9 @@ from django.http import HttpRequest
 from lists.models import Item, List
 from lists.views import home_page
 
-from helpers import debug
+import sys
+sys.path.insert(0, "helpers")
+import debug
 
 class HomePageTest(TestCase):
 

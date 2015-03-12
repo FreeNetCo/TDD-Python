@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# Filename: debug.py
 from pprint import pprint as pp
 from time import sleep
 
@@ -10,7 +12,7 @@ from time import sleep
 # for common debugging tasks, etc.
 ##
 
-def pause(var, delay=15):
+def _pause(var, delay=15):
 	sleep(delay)
 	return var
 
@@ -23,7 +25,7 @@ def pause(var, delay=15):
 def dp(var, delay=15):
 	print('\npp out:\n')
 	content = pp(var)
-	return pause(content, delay)
+	return _pause(content, delay)
 
 """
 " dd(var)
